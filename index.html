@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CodeBox</title>
+  
+    <style>
+		
+		<!-- Just Copy CSS Code & Paste it inside Style Tag -->
+		<!--CodeBox CSS Code Start -->
+        .codeDiv{
+            margin: 10px 15px;
+        }
+        .codeBox{
+            -webkit-box-sizing: border-box;
+            -moz-box-sizing: border-box;
+            box-sizing: border-box;
+            font-size: 18px;
+            background-color: aliceblue;
+            min-height: 200px;
+            width: 100%;
+            resize: none;
+        }
+        .copyBtn{
+            background:rgba(2, 121, 121, 0.897);
+            padding: 8px;
+            font-size: 18px;
+            border: none;
+            color: white;
+            cursor: pointer;
+        }
+		<!--CodeBox CSS Code End -->
+		
+		
+    </style>
+
+</head>
+<body>
+
+<!--Copy Blogger Post Code paste it inside your Blogger Post-->
+<!--Blogger Post Code Start-->
+<div class="codeDiv">
+    <div><button class="copyBtn">Copy</button></div>
+    <textarea class="codeBox" placeholder="Code" readonly >
+Paste your all code here that you want to show in your Website..
+    </textarea>
+</div>
+<!--Blogger Post Code End-->
+
+
+
+<!-- For Adding CodeBox you have to add jQuery -->
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+
+<script>
+
+//Copy Script Code & Paste it inside your Script Tag 
+//CodeBox Script Code Start
+    $(".copyBtn").click(function(){
+        var position = $('.copyBtn').index(this);
+        var copyText = $(".codeBox")[position].value;
+
+        copyToClipboard(copyText);
+
+        var clickedBtn = document.querySelectorAll(".copyBtn")[position];
+        clickedBtn.innerHTML = "Copied";
+        clickedBtn.style.background = 'rgba(0, 148, 67, 0.884)';
+
+        setTimeout(function(){
+            clickedBtn.innerHTML = "Copy";
+            clickedBtn.style.background = 'rgba(2, 121, 121, 0.897)' ;
+        }, 1000);
+    });
+    function copyToClipboard(copyText) {
+        var $temp = $("<input/>");
+        $("body").append($temp);
+        $temp.val(copyText).select();
+        document.execCommand("copy");
+        $temp.remove();
+    }
+//CodeBox Script End Start 
+
+</script>
+</body>
+</html>
